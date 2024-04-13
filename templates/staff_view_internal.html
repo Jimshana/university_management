@@ -1,0 +1,132 @@
+{% include 'staff_header.html' %}
+
+
+<form id="form1" name="form1" method="post" action="/staff_view_internals_post">
+  <div align="center">
+
+    <p>&nbsp;</p>
+    <table class="table table-bordered table-striped table-hover">
+      <tr>
+      <input type="hidden" name="callid" value="{{ id }}"/>
+        <th>Course</th>
+        <td><select name="course" id="crs" required class="form-control">
+            <option>-select course--</option>
+           {%for a in data  %}
+          <option value="{{a[0]  }}">{{a[1]  }}</option>
+          {% endfor %}
+
+      </select>        </td>
+      </tr>
+      
+      <tr>
+      <tr>
+        <th>Batch</th>
+        <td><select name="batch" id="bid" class="form-control"></select > </td>
+      </tr>
+      
+      
+      
+      <tr>
+        <th>Semester</th>
+        <td><select name="semester" id="sem" class="form-control">
+            <option value="">-- Select --</option>
+          <option value="1st semester">1st semester</option>
+          <option value="2nd semester">2nd semester</option>
+          <option value="3rd semester">3rd semester</option>
+          <option value="4th semester">4th semester</option>
+          <option value="5th semester">5th semester</option>
+          <option value="6th semester">6th semester</option>
+       
+          </select>        </td>
+      </tr>
+      
+      <tr>
+        <th>Subject</th>
+        <td><select name="subject" id="subjectid" class="form-control">
+          
+          </select>        </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center"><input type="submit" name="Submit" value="Submit" class="btn btn-primary"/></td>
+    </tr>
+
+    <a href="#" data="2" ></a>
+    </table>
+  </div>
+</form>
+
+<script src="/static/jquery.js" ></script>
+<script>
+$(document).ready(function ()
+{
+ 
+
+
+
+});
+
+    $(document).ready(function () {
+    	$("#crs").on('change',function(){
+	     var courseid=$(this).val()
+	    $.getJSON('/selectbatch',{
+	        crsid:courseid
+
+	        },function(data){
+	            var len=data.length;
+                $("#bid").text("");
+
+	            for(var i=0;i<len;i++)
+                {
+                    var batchid=data[i]['id']
+                    var batch=data[i]['batch']
+                    $("#bid").append("<option value="+batchid+">"+batch+"</option>")
+
+                }
+
+
+
+	        });
+
+        	});
+
+
+    $("#sem").on('change',function () {
+         var sem=$("#sem").val()
+        var courseid=$("#crs").val()
+        var batchid=$("#bid").val()
+         $("#subjectid").text("")
+    	$.getJSON('/selectsubject',{
+	        crsid:courseid,
+            bid:batchid,
+            sem:sem
+
+    	},function(data){
+	          var len=data.length;
+
+	          for(var i=0;i<len;i++)
+                  {
+                    var subjectid1=data[i]['subjectid']
+                    var subject1=data[i]['subject']
+                    $("#subjectid").append("<option value="+subjectid1+">"+subject1+"</option>")
+
+                  }
+
+
+
+	    });
+
+	});
+
+
+    });
+
+
+
+</script>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}

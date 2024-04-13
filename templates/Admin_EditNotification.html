@@ -1,0 +1,107 @@
+<!-- {% include 'admin_header.html' %}
+
+<form id="form1" name="form1" method="post" action="/">
+
+    <div align="center">
+      <table>
+        <tr>
+          <td>Message</td>
+            <td><label>
+              <textarea name="textarea"></textarea>
+            </label></td>
+          </tr>
+        <tr>
+          <td>College</td>
+           <td><label>
+           <select name="select">
+           </select>
+           </label></td>
+           </tr>
+        <tr><td><input type="submit" id="update" value="Update"></td></tr>
+        </table>
+    </div>
+</form>
+{% include 'footer.html' %}
+ -->
+ {% include 'admin_header.html' %}
+
+<style>
+    .container {
+        background-color: transparent; /* Set background color to transparent */
+    }
+
+    .content-box {
+        background-color: #ffffff; /* Set background color of the box */
+        border-radius: 10px; /* Set border radius for rounded corners */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+        padding: 20px; /* Add padding for spacing */
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    textarea, select, input[type="submit"] {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box; /* Ensure the input width includes padding */
+        border-radius: 5px; /* Add border radius for rounded corners */
+        border: 1px solid #dddddd; /* Add border */
+        margin-top: 5px; /* Add margin to separate input fields */
+    }
+
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #ffffff;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<form id="form1" name="form1" method="post" action="/">
+
+    <div class="container">
+        <div class="content-box">
+            <div align="center">
+                <table>
+                    <tr>
+                        <td><strong>Message:</strong></td>
+                        <td><textarea name="textarea" required></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><strong>College:</strong></td>
+                        <td>
+                            <select name="select" required>
+                                <!-- Add options dynamically or statically -->
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center"><input type="submit" id="update" value="Update"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% include 'footer.html' %}
+

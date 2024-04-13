@@ -1,0 +1,39 @@
+{% include "staff_header.html" %}
+
+<form id="form1" name="form1" method="post" action="/CollegeAddInternal2">
+  <div align="center">
+    <p>&nbsp;</p>
+    <table class="table table-bordered table-striped table-hover">
+      <tr>
+        <th>SL NO</th>
+        <th scope="col">RegNo</th>
+        <th scope="col">Name</th>
+        <th scope="col">Internal Mark(40)</th>
+        <th scope="col">Attendance(%)</th>
+      </tr>
+      {% for i in data %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ i[0] }}</td>
+        <td>{{ i[1] }}</td>
+        <td>&nbsp;<input type="text" name="intmark" class="form-control" required/></td>
+        <td>&nbsp;<input type="text" name="attnd" class="form-control" required/></td>
+      </tr>
+      {% endfor %}
+      <tr>
+        <td colspan="5">
+          <div align="center"><input type="submit" name="submit" value="Submit" class="btn btn-primary"/></div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <p align="center">&nbsp;</p>
+</form>
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}

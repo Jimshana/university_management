@@ -1,0 +1,67 @@
+{% include 'admin_header.html' %}
+
+ 
+
+<style>
+    .container {
+        background-color: transparent; /* Set background color to transparent */
+    }
+    
+    .content-box {
+        background-color: #ffffff; /* Set background color of the box */
+        border-radius: 10px; /* Set border radius for rounded corners */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+        padding: 20px; /* Add padding for spacing */
+    }
+
+    th, td {
+        padding: 10px;
+    }
+</style>
+
+      <h2 class="text-center fs-6 text-dark"  style="font-weight:bold">Add Course</h2>
+
+        <form method="post" action="/Addcourse1">
+            <div align="center">
+                <p>&nbsp;</p>
+                <table class="table table-bordered table-striped" style="width: 60%;">
+                    <tr>
+                        <th>Select Department</th>
+                        <td>
+                            <select name="dptid" class="form-control">
+                                {% for i in data['dptview'] %}
+                                    <option value="{{i[0]}}" >{{i[1]}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Course</strong></td>
+                        <td><input type="text" name="course" id="course" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Course Code</strong></td>
+                        <td><input type="text" name="coursecd" id="coursecd" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input name="submit" type="submit" id="add" value="Add" class="btn btn-primary">
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <p><a href="/Viewcourse" class="btn btn-info"> View Course</a></p><br>
+                <p><a href="/Allocate" class="btn btn-danger">Allocate Course</a> </p><br>
+                <p><a href="/Viewalloccourse"  class="btn btn-secondary">View allocations</a> </p>
+            </div>
+        </form>
+
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+
+{% include 'footer.html' %}

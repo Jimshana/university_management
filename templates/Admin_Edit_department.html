@@ -1,0 +1,61 @@
+
+
+{% include 'admin_header.html' %}
+
+<style>
+    th, td {
+        padding: 20px;
+    }
+
+    h2 {
+        font-family: verdana;
+        padding: 30px;
+        font-weight:bold;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .btn {
+        background-color: #007bff;
+        color: #ffffff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+{% if data['cosview'] %}
+    <center>
+        <h2>Edit Departments</h2>
+        <table>
+            <form method="post">
+                <tr>
+                    <input type="hidden" name="did" value="{{data['cosview'][0][0]}}">
+                    <th>Department Name</th>
+                    <td><input type="text" name="dptname" class="form-control" placeholder="Enter department name" value="{{data['cosview'][0][1]}}" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="submit" class="btn btn-primary" name="update" value="Update"></td>
+                </tr>
+            </form>
+        </table>
+    </center>
+{% endif %}
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}
+

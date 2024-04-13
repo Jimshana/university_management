@@ -1,0 +1,68 @@
+
+{% include 'admin_header.html' %}
+
+<style>
+    th, td {
+        padding: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>
+
+<form method="post" action="/">
+    <h2 class="text-center fs-6 text-dark"  style="font-weight:bold">View Internal Call</h2>
+
+    <div align="center">
+        <p>&nbsp;</p>
+        <table>
+            <tr>
+                <th>SL NO</th>
+                  <th>SEM </th>
+                  <th>Message</th>
+                <th>Course </th>
+                 <th>College </th>
+ <th>Batch</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            {% for i in range(d) %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ data[i][1] }}</td>
+                 <td>{{  data[i][2] }}</td>
+ <td>{{  data[i][6] }}</td>
+                        <td>{{ data[i][4] }}</td>        <td>{{  data[i][5] }}</td>
+
+               <td>{{  ss[i] }}</td>
+                <td><a href="/deleteinternalcall/{{  data[i][0] }}" class="btn btn-primary">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</form>
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}
+

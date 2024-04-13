@@ -1,0 +1,71 @@
+{% include "college_header.html" %}
+
+<style>
+    th, td {
+        padding: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>
+<form method="post" action="/Viewstudentdata">
+  <h2 class="text-center fs-6 text-dark"  style="font-weight:bold">View Students</h2><br>
+
+  <div align="center">
+    <p>&nbsp;</p>
+    <table >
+      <tr>
+        <th>Name</th>
+          <th>Gender</th>
+		  <th>DOB</th>
+              
+		  <th>Place</th>
+			  
+		  <th>Guardian</th>
+          <th>Course</th>
+      </tr>
+      {% for i in data %}
+      <tr>
+
+		   <td>{{i[2]}}</td>
+             
+		   <td>{{i[3]}}</td>
+			  
+		   <td>{{i[4]}}</td>
+			  
+           <td>{{i[6]}}</td>
+            <td>{{i[11]}}</td>
+            <td>{{i[22]}}</td>
+			  
+		   <td><a href="/Viewmore/{{i[0]}}">view more</a></td>
+           <td><a href="/deletestudent/{{i[0]}}">delete</a></td>
+           <td><a href="/updatestudent/{{i[0]}}">edit</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</form>
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}

@@ -1,0 +1,23 @@
+{% include 'student_header.html' %}
+
+<body>
+<form action="/student_send_complaints_p" method="post">
+
+
+     <table class="table table-bordered table-striped table-hover"><tr>
+
+  <tr>
+    <th>Complaints</th>
+    <td><textarea name="textarea" id="textarea" cols="45" rows="5"></textarea></td>
+  </tr>
+  <tr>
+    <td colspan="2"><div align="center">
+      <input type="submit" name="button" id="button" value="send" class="btn btn-success" />
+    </div></td>
+    </tr>
+</table>
+</form>
+</body>
+
+
+{%include 'footer.html' %}

@@ -1,0 +1,129 @@
+<script language="javascript" type="text/javascript">
+    function printDiv(divID) {
+        //Get the HTML of div
+        var divElements = document.getElementById(divID).innerHTML;
+        //Get the HTML of whole page
+        var oldPage = document.body.innerHTML;
+
+        //Reset the page's HTML with div's HTML only
+        document.body.innerHTML =
+              "<html><head><title></title></head><body>" +
+              divElements + "</body>";
+
+        //Print Page
+        window.print();
+
+        //Restore orignal HTML
+        document.body.innerHTML = oldPage;
+
+
+    }
+    </script>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <style type="text/css">
+        .style1
+        {
+            width: 100%;
+        }
+        .style2
+        {
+            font-size: x-large;
+        }
+        .style4
+        {
+            font-size: medium;
+        }
+        .style5
+        {
+            text-align: right;
+            font-size: small;
+        }
+        .style6
+        {
+            width: 626px;
+        }
+        .style7
+        {
+            width: 136px;
+            height: 72px;
+        }
+        .style10
+        {
+            height: 78px;
+        }
+        .style11
+        {
+            height: 88px;
+        }
+    </style>
+
+
+</head>
+<body>
+    <form id="form1" runat="server">
+      <div id="printablediv">
+        <table width="80%" class="style1">
+          <tr>
+            <td colspan="3" class="style10" style="font-weight: 700; text-align: center"><img class="style7" 
+                            src="/static/logo.jpeg" />&nbsp;</td>
+            <td width="1%" class="style10"></td>
+          </tr>
+          <tr>
+            <td colspan="3" class="style11" style="font-weight: 700; text-align: center"><span class="style2">&nbsp;UNIVERSITY OF KENT</span><br /></td>
+            <td class="style11"></td>
+          </tr>
+          <tr>
+            <td colspan="3" style="font-weight: 700; text-align: center"><span class="style4">FACULTY OF TECHNOLOGY </span></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="3" class="style4" style="text-align: center"><p>&nbsp;</p></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="3" style="text-align: center"><p>The Syndicate of the University Of Kent</p>
+              <p>hereby makes known that</p>
+              <p>...........{{name}}...................</p>
+              <p>has been admitted to the</p>
+              <p>Degree of Bachelor of Science</p>
+              <p>under ...........{{crs}}....................... Branch</p>
+              <p>he / she having been certified by duly appointed examiners</p>
+              <p>to be qualified to receive the same, and having been by them</p>
+              <p>placed in the .......{{gd}}.................... at the</p>
+              <p>examination held in March 2024 with Register Number ...{{reg}}...........................</p>
+              <p>Given under the seal of university </p></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="3" style="text-align: center">&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td colspan="3" style="text-align: center"><table class="style1">
+                <tr>
+                  <td width="206"><input name="img" type="image" src="{{pho}}" height="80" width="111" align="right">
+                  </td>
+                  <td width="624" class="style6"><div align="right">
+{#                      <input name="img2" type="image" src="C:\Users\Lenovo\Pictures\Screenshots\sign111.jpg" align="right" width="111" height="33">#}
+                  </div></td>
+                  <td width="216"><div align="right">
+                      <input name="img2" type="image" src="/static/d.jpeg" align="right" height="33" width="111">
+                  </div></td>
+                </tr>
+            </table></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+{#            <td width="20%" height="21" class="style5">&nbsp;</td>#}
+{#            <td width="58%" class="style5"><div align="right">Registrar</div></td>#}
+            <td width="21%" class="style5">Vice-Chancellor</td>
+{#            <td>&nbsp;</td>#}
+          </tr>
+        </table>
+      </div>
+     <input type="button" value="Print 1st Div" onClick="javascript:printDiv('printablediv')" />
+    </form>
+</body>
+</html>

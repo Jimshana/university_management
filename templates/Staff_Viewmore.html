@@ -1,0 +1,85 @@
+{% include 'staff_header.html' %}
+
+<form action="/Viewmore" method="post">
+  <div align="center">
+
+    <p>&nbsp;</p>
+     <table class="table table-bordered table-striped table-hover"><tr>
+
+        <td colspan="2" align="center"><img src="/static/image/{{data[19]}}" style="height: 150px;width: 150px"></td>
+      </tr>
+
+      <tr>
+        <th width="120" scope="row">Name</th>
+        <td width="144">{{data[2]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Gender</th>
+        <td>{{data[3]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">D.O.B</th>
+        <td>{{data[4]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">HouseName</th>
+        <td>{{data[5]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Place</th>
+        <td>{{data[6]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Street</th>
+        <td>{{data[7]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Post</th>
+        <td>{{data[8]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Pin</th>
+        <td>{{data[9]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">State</th>
+        <td>{{data[10]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Guardian</th>
+        <td>{{data[11]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Local Guardian </th>
+        <td>{{data[12]}}</td>
+      </tr>
+      
+      <tr>
+        <th scope="row">Course</th>
+        <td>{{data[23]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Batch</th>
+        <td>{{data[25]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Semester</th>
+        <td>{{data[15]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">PhoneNo</th>
+        <td>{{data[16]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">RegNo</th>
+        <td>{{data[17]}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Email Id </th>
+        <td>{{data[18]}}</td>
+      </tr>
+
+    </table>
+  </div>
+</form>
+{% include 'footer.html' %}

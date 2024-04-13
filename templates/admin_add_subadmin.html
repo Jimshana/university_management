@@ -1,0 +1,91 @@
+{% include 'admin_header.html' %}
+<center>
+<form action="" method="post" enctype="multipart/form-data">
+    <h2 align="center" class="heading" style="color: black;font-weight: bold;">Add subadmin</h2><br>
+
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th align="right">Name :</th>
+            <td><input type="text" name="name" required class="form-control"></td>
+        </tr>
+        <tr>
+            <th align="right">Gender :</th>
+            <td><input type="radio" name="Gender" required value="Male">Male
+                <input type="radio" name="Gender" value="Female">Female
+                <input type="radio" name="Gender" value="other">other
+            </td>
+        </tr>
+        <tr>
+            <th align="right">DOB :</th>
+            <td><input type="date" name="dob" required class="form-control"></td>
+        </tr>
+            <tr>
+                <th align="right">Photo :</th>
+                <td><input type="file" name="photo" required class="form-control"></td>
+            </tr>
+          
+            <tr>
+                <th align="right">Email id :</th>
+                <td><input type="text" name="email" required class="form-control"></td>
+            </tr>
+            <tr>
+                <th align="right">Phone :</th>
+                <td><input type="text" name="phone" pattern="[6789][0-9]{9}" required class="form-control"></td>
+            </tr>
+            
+        
+            <tr>
+                <th align="right">Password :</th>
+                <td><input type="password" name="pswd" required class="form-control"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="submit" required class="form-control"></td>
+            </tr>
+    </table>
+</form>
+<br><br>
+
+<br><br><br>
+
+<table class="table tabl-bordered table-striped">
+    <thead>
+        <tr>
+            <th>SL No</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>DOB</th>
+            <th>Photo</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th></th>
+               <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in data %}
+            <tr>
+            <th>{{ loop.index }}</th>
+        <th>{{i[2]}}</th>
+        <th>{{i[3]}}</th>
+        <th>{{i[4]}}</th>
+        <th><img src="{{i[5]}}" alt="" width="100px" height="100px"></th>
+        <th>{{i[7]}}</th>
+        <th>{{i[6]}}</th>
+               <td><a href="/edit_subadmin/{{ i[0] }}"class="btn btn-success">Edit</a></td>
+    <td><a href="/delete_sub_admin/{{ i[0] }}" onclick="return confirm('are you sure?')" class="btn btn-danger">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  
+</table>
+</center>
+
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+
+{% include 'footer.html' %}

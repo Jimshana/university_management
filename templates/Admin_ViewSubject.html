@@ -1,0 +1,43 @@
+
+{% include 'admin_header.html' %}
+
+<style>
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>
+
+<form id="form1" name="form1" method="post" action="">
+    <div align="center">
+        <p>&nbsp;</p>
+        <table width="396" height="104" border="1">
+            <tr>
+                <th>Course</th>
+                <th>Semester</th>
+                <th>Batch</th>
+                <th>Subject</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td><a href="//{{ i[0] }}">Remove</a></td>
+                <td><a href="//{{ i[0] }}">Edit</a></td>
+            </tr>
+        </table>
+    </div>
+</form>
+
+{% include 'footer.html' %}

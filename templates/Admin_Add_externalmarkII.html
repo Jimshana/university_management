@@ -1,0 +1,72 @@
+{% include 'sub_header.html' %}
+
+<style>
+    .container {
+        background-color: transparent; /* Set background color to transparent */
+    }
+    
+    .content-box {
+        background-color: #ffffff; /* Set background color of the box */
+        border-radius: 10px; /* Set border radius for rounded corners */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+        padding: 20px; /* Add padding for spacing */
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<div class="container">
+    <div class="content-box">
+        <form id="form1" name="form1" method="post" action="/Addxternal2">
+            <div align="center">
+                <p>&nbsp;</p>
+                <table width="482" height="124">
+                    <tr>
+                        <th width="144">RegNo</th>
+                        <th width="144">Name</th>
+                        <th width="144">Internals</th>
+                        <th width="144">Mark</th>
+                    </tr>
+                    {% for i in data %}
+                    <tr>
+                        <td>{{ i[0] }}</td>
+                        <td>{{ i[1] }}</td>
+                        <td>{{ i[2] }}</td>
+                        <td><input type="text" name="mark" class="form-control" placeholder="must not exceed 60" required /></td>
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td colspan="3" align="center">
+                            <input type="submit" name="Submit" value="Submit" class="btn btn-primary" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}

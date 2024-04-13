@@ -1,0 +1,34 @@
+{%include 'college_header.html' %}
+
+  <form id="form1" name="form1" method="post" action="/clgvwnot">
+  <center>
+
+  <table width="316" height="49">
+    <tr>
+      <td width="96"><strong>
+        <input name="notification" type="radio" value="normal"/>
+      Normal</strong></td>
+      <td width="135"><strong>
+        <input name="notification" type="radio" value="internal" />
+      Internal Mark</strong></td>
+      <td width="63"><input type="submit" name="Submit2" value="Ok" /></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <table width="262" height="94" border="1">
+    <tr>
+      <th width="68" scope="col">Message</th>
+      <th width="36" scope="col">Date</th>
+      
+    </tr>
+	{%for i in data%}
+    <tr>
+      <td>{{i[1]}}</td>
+      <td>{{i[3]}}</td>
+     
+    </tr>
+	{%endfor%}
+  </table>
+  </center>
+</form>
+{% include 'footer.html' %}

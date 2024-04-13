@@ -1,0 +1,216 @@
+{% include "college_header.html" %}
+<style>
+    th,td{
+        padding: 30px;
+    }
+    h2{
+        font-family:verdana;
+        padding:30px;
+    }
+</style>
+
+{% if data['sdview'] %}
+    <center>
+        <h2 align="center" class="heading">Update Teachers</h2>
+          <table class="table table-bordered table-striped">
+            <form method="post" enctype="multipart/form-data">
+    
+            <tr>
+                <th>First Name</th>
+                <td><input type="text"  class="form-control" name="fname" value="{{data['sdview'][0][2]}}" required></td>
+            </tr>
+
+            <tr>
+                <th>Last Name</th>
+                <td><input type="text"  class="form-control" name="lname" value="{{data['sdview'][0][3]}}" required></td>
+            </tr>
+                   {% if data['sdview'][0][4]=="Male" %}
+            <tr>
+                <th>Gender</th>
+                <td required ><input type="radio" name="Gender" value="Male" checked>Male
+                    <input type="radio" name="Gender" value="Female">Female
+                    <input type="radio" name="Gender" value="Others">Others</td>
+            </tr>
+                  {% elif data['sdview'][0][4]=="Female" %}
+            <tr>
+                <th>Gender</th>
+                <td required ><input type="radio" name="Gender" value="Male" >Male
+                    <input type="radio" name="Gender" value="Female" checked>Female
+                    <input type="radio" name="Gender" value="Others">Others</td>
+            </tr>
+                {% else %}
+                 <tr>
+                <th>Gender</th>
+                <td required ><input type="radio" name="Gender" value="Male" >Male
+                    <input type="radio" name="Gender" value="Female" checked>Female
+                    <input type="radio" name="Gender" value="Others">Others</td>
+            </tr>
+                {% endif %}
+            <tr>
+                <th>D.O.B</th>
+                <td><input type="date"  class="form-control" id="mydob" name="db" onchange="checkMinimumAge()" value="{{data['sdview'][0][5]}}" required></td>
+
+            </tr>
+            <tr>
+                <th>House Name</th>
+                <td><input type="text"  class="form-control" name="hname" value="{{data['sdview'][0][6]}}" required></td>
+            </tr>
+            <tr>
+                <th>Place</th>
+                <td><input type="text"  class="form-control" name="place" value="{{data['sdview'][0][7]}}" required></td>
+            </tr>
+            <tr>
+                <th>Pincode</th>
+                <td><input type="text"  class="form-control" pattern="[0-9]{6}" title="Enter 6 digit Pin  number" name="pcod" value="{{data['sdview'][0][8]}}" required></td>
+            </tr>
+            <tr>
+                <th>District</th>
+                <td><input type="text"  class="form-control" name="disrict" value="{{data['sdview'][0][9]}}" required></td>
+            </tr>
+
+                 <tr>
+                <th>Phone</th>
+                <td><input type="text" name="phone"  class="form-control" pattern="[0-9]{10}" title="Enter 10 digit Mobile number" value="{{data['sdview'][0][10]}}" required></td>
+            </tr>
+    <tr>
+                <th>Email</th>
+                <td><input type="text" name="email" id="email"  class="form-control"  value="{{data['sdview'][0][11]}}" required></td>
+            </tr>
+                    <tr>
+                <th>Qualification</th>
+                <td><input type="text" name="qualification"  class="form-control"  value="{{data['sdview'][0][12]}}" required></td>
+            </tr>
+   <tr>
+                <th>Photo</th>
+                <td><input type="file" name="photo"   class="form-control"></td>
+            </tr>
+            <tr>
+                <td colspan="2" ><input type="submit" id="myb" name="updateS" class="btn btn-info"></td>
+            </tr>
+        </form>
+        </table>
+    </center>
+{% else %}
+
+    <center>
+        <h2 align="center" class="heading">Add Staff</h2>
+       <table class="table table-bordered table-striped">
+            <form method="post" enctype="multipart/form-data">
+    
+            <tr>
+                <th>First Name</th>
+                <td><input type="text"  class="form-control" name="fname" pattern="[A-Za-z]{30}+$"  required></td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td><input type="text"  class="form-control" name="lname" pattern="[A-Za-z]{30}+$" required></td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td required ><input type="radio" name="Gender" value="Male">Male
+                    <input type="radio" name="Gender" value="Female">Female
+                    <input type="radio" name="Gender" value="Others">Others</td>
+            </tr>
+            <tr>
+                <th>D.O.B</th>
+                <td><input type="date" id="mydob"  class="form-control" name="db" onchange="checkMinimumAge()" required></td>
+            </tr>
+            <tr>
+                <th>House Name</th>
+                <td><input type="text" name="hname"  class="form-control" pattern="[A-Za-z]{30}+$" required></td>
+            </tr>
+            <tr>
+                <th>Place</th>
+                <td><input type="text" name="place"  class="form-control" pattern="[A-Za-z]{30}+$" required></td>
+            </tr>
+            <tr>
+                <th>Pincode</th>
+                <td><input type="text" name="pcode"  class="form-control" pattern="[0-9]{6}" maxlength="6" required></td>
+            </tr>
+            <tr>
+                <th>District</th>
+                <td><input type="text"  class="form-control" required pattern="[A-Za-z]{30}+$" name="disrict" required></td>
+            </tr>
+
+
+                 <tr>
+                <th>Phone</th>
+                <td><input type="text"  class="form-control" name="phone"  pattern="[0-9]{10}" title="Enter 10 digit Phone number"  required></td>
+            </tr>
+    <tr>
+                <th>Email</th>
+                <td><input type="email" id="email"  class="form-control" name="email"  required></td>
+            </tr>
+                    <tr>
+                <th>Qualification</th>
+                <td><input type="text" name="qualification"  class="form-control"  required></td>
+            </tr>
+   <tr>
+                <th>Photo</th>
+                <td><input type="file" name="photo"   class="form-control" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center" ><input class="btn btn-info" id="myb" type="submit" name="submit"></td>
+            </tr>
+        </form>
+        </table>
+    </center>
+{% endif %}
+    <center>
+        <h2 align="center" class="heading">Registered Staff</h2>
+         <br>
+
+
+        <br>
+       <table class="table table-bordered table-striped" id="mytable">
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+               
+                <th>Address</th>
+                <th>Contact</th>
+                <th>Qualification</th>
+                <th></th>
+                <th></th>
+            </tr>
+
+            {% for i in data['stview'] %}
+            <tr>
+                <Td>{{loop.index}}</Td>
+                <td><img src="{{i[13]}}" width="150px" height="150px"/>
+                    <br>
+                    <br>
+                    <h5 align="center">{{i[2]}} {{ i[3] }}</h5></td>
+              
+                <td>{{i[7]}}<br>{{i[8]}}<br>{{i[9]}}</td>
+                <td>{{i[10]}}<br>{{i[11]}}</td>
+                <td>{{i[12]}}</td>
+                <td><a class="btn btn-primary" href="?action=update&stid={{i[1]}}">Update</a></td>
+                <td><a class="btn btn-danger" href="?action=delete&stid={{i[1]}}">Delete</a></td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+<script>
+        function checkMinimumAge() {
+            var currentDate = new Date();
+            var selectedDate = new Date(document.getElementById('mydob').value);
+
+            // Calculate age
+            var age = currentDate.getFullYear() - selectedDate.getFullYear();
+
+            // Check if the user is less than 21 years old
+            if (age < 21) {
+                alert("Sorry, you must be at least 21 years old.");
+                document.getElementById('mydob').value = ""; // Reset the value
+            }
+        }
+    </script>
+
+
+
+
+
+
+   {% include 'footer.html' %}

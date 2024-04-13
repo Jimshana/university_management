@@ -1,0 +1,74 @@
+
+
+{%include 'admin_header.html' %}
+
+<style>
+    th, td {
+        padding: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        text-align: left;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>
+
+<form method="post" action="/subadmin_view_colleges_search">
+    <h2 class="text-center fs-6 text-dark" style="font-weight:bold">View Students</h2><br>
+
+    <center>
+       
+        <table width="100%" border="1">
+            <tr>
+                
+                <th>College Name</th>
+                <th>Email ID</th>
+                <th>Phone</th>
+               
+               
+                <th>Place</th>
+                <th>Street</th>
+                <th>Pin</th>
+                <th colspan="1">Actions</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+               
+                <td>{{ i[1] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[5] }}</td>
+                <td>{{ i[6] }}</td>
+{#                <td><a href="/deletecollege/{{ i[0] }}">Delete</a></td>#}
+{#                <td><a href="/updatecollege/{{ i[0] }}">Edit</a></td>#}
+                <td><a href="/admin_view_coursess/{{ i[0] }}">View Courses</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</form>
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}
+
+

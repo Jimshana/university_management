@@ -1,0 +1,36 @@
+{% include 'staff_header.html' %}
+
+
+
+<form id="form1" name="form1" method="post" action="">
+  <h2 class="text-center fs-6 text-dark"  style="font-weight:bold">Batches</h2><br>
+
+     <table class="table table-bordered table-striped table-hover">
+    <tr>
+      <td>id</td>
+{#      <td>cource</td>#}
+      <td>batch</td>
+      <td>&nbsp;</td>
+
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{loop.index}}</td>
+      <td>{{i[1]}}</td>
+{#      <td>{{i[2]}}</td>#}
+      <td><a href="/staff_view_students/{{i[0]}}" class="btn btn-primary">Students</a></td>
+
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}
+
+

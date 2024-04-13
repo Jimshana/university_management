@@ -1,0 +1,49 @@
+
+{% include 'admin_header.html' %}
+
+
+
+
+<style>
+    th, td {
+        padding: 20px;
+    }
+
+    h2 {
+        font-family: Verdana;
+      
+    }
+</style>
+
+<center>
+    <br>
+    <h2 align="center" class="heading" style="color: black;font-weight: bold;">Registered Departments</h2>
+    <br>
+    <table class="table table-bordered table-striped" style="width: 60%;">
+        <tr >
+            <th>#</th>
+            <th>Department</th>
+            <th colspan="2"></th>
+        </tr>
+        {% for i in data['dptmview'] %}
+        <tr >
+            <td>{{ loop.index }}</td>
+            <td>{{ i[1] }}</td>
+            <td><a class="btn btn-primary" href="/admin_edit_department/{{ i[0] }}">Update</a></td>
+            <td><a class="btn btn-danger" href="/admin_delete_department/{{ i[0] }}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+
+
+{% include 'footer.html' %}
+
+
+

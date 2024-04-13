@@ -1,0 +1,49 @@
+
+ {% include 'admin_header.html' %}
+
+<style>
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>
+
+ 
+ <form method="post" action="/Viewnotif">
+    <h2 align="center" class="heading" style="color: black;font-weight: bold;">View Notification</h2>
+
+     <div align="center">
+         <p>&nbsp;</p>
+         <table width="100%" class="table table-bordered">
+             <tr>
+                 <th>College</th>
+                 <th>Message</th>
+                 <th>Action</th>
+             </tr>
+             {% for i in data %}
+             <tr>
+                 <td>{{ i[7] }}</td>
+                 <td>{{ i[1] }}</td>
+                 <td><a href="/deletenotif/{{ i[0] }}" class="btn btn-primary">Delete</a></td>
+             </tr>
+             {% endfor %}
+         </table>
+     </div>
+ </form>
+ <br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+ {% include 'footer.html' %}
+ 

@@ -1,0 +1,68 @@
+
+
+{%include 'admin_header.html' %}
+
+<form method="post" action="/Viewstudentdata">
+  <div align="center">
+    <p>&nbsp;</p>
+
+<style>
+    th, td {
+        padding: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>
+    <table >
+      <tr>
+        <th>Name</th>
+          <th>Gender</th>
+		  <th>DOB</th>
+              
+		  <th>Place</th>
+			  
+		  <th>Guardian</th>
+          <th>Course</th>
+          <th>
+
+          </th>
+
+      </tr>
+      {% for i in data %}
+      <tr>
+
+		   <td>{{i[2]}}</td>
+             
+		   <td>{{i[3]}}</td>
+			  
+		   <td>{{i[4]}}</td>
+			  
+           <td>{{i[6]}}</td>
+            <td>{{i[11]}}</td>
+            <td>{{i[22]}}<br>{{i[25]}}</td>
+			  
+		   <td><a href="/Viewmored/{{i[0]}}" class="btn btn-primary">view more</a></td>
+
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</form>
+{% include 'footer.html' %}

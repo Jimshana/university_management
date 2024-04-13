@@ -1,0 +1,53 @@
+
+
+
+{%include 'admin_header.html' %}
+
+
+<style>
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>
+
+<form method="post" action="/searchcourse">
+
+    <div align="center">
+        <table width="100%" height="104" border="1">
+            <tr>
+                <th>Sl No</th>
+                <th>Course</th>
+                <th>Course Code</th>
+{#                <th>Department</th>#}
+                <th colspan="1">Actions</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+            <th>{{ loop.index }}</th>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[5] }}</td>
+{#                <td>{{ i[2] }}</td>#}
+{#                <td><a href="/deletecourse/{{ i[0] }}">Delete</a></td>#}
+                <td><a href="/admin_view_studentss/{{ i[2] }}">Students</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</form>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}

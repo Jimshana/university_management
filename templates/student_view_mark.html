@@ -1,0 +1,63 @@
+{% include 'student_header.html' %}
+
+<body>
+<form action="/student_view_marks_post" method="post">
+  <h2 class="text-center fs-6 text-dark"  style="font-weight:bold">View Marks</h2><br>
+
+
+     <table class="table table-bordered table-striped table-hover"><tr>
+
+        <td colspan="2" align="center">Sem</td>
+
+
+
+              <td>
+                            <select name="semester" class="form-control" required>
+                                <option>1st semester</option>
+                                <option>2nd semester</option>
+                                <option>3rd semester</option>
+                                <option>4th semester</option>
+                                <option>5th semester</option>
+                                <option>6th semester</option>
+
+                            </select>
+                        </td>
+       <td>
+           <input type="submit" value="Search" class="btn btn-primary" />
+       </td>
+      </tr>
+
+
+</table>
+
+
+     <table class="table table-bordered table-striped table-hover">
+
+  <tr>
+    <th>Sno</th>
+  
+    <th>Subject</th>
+    <th>Internal/40</th>
+    <th>External/60</th>
+  </tr>
+  <tr>
+      {% for i in l %}
+    <td>{{ loop.index }}</td>
+  
+    <td>{{ i['subject'] }}&nbsp;</td>
+    <td>{{ i['internal'] }}&nbsp;</td>
+    <td>{{ i['external'] }}&nbsp;</td>
+  </tr>
+    {% endfor %}
+</table>
+
+</form>
+</body>
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}

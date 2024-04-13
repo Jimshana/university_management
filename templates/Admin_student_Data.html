@@ -1,0 +1,50 @@
+
+
+{%include 'admin_header.html' %}
+
+<h2 class="text-center fs-6 text-dark" style="font-weight:bold">View Students</h2><br>
+
+<form method="post" action="/Viewstudentdata">
+  <div align="center">
+    <p>&nbsp;</p>
+    <table class="table table-bordered">
+      <tr>
+          <th>Sl No</th>
+        <th>Name</th>
+          <th>Register No</th>
+          <th>Gender</th>
+		  <th>DOB</th>
+              
+		  <th>Place</th>
+			  
+		  <th>Guardian</th>
+          <th>Course</th>
+
+      </tr>
+      {% for i in data %}
+      <tr>
+<td>{{ loop.index }}</td>
+		   <td><img src="/static/image/{{ i[19] }}" width="100px" height="100px"/>
+               <br>
+               {{i[2]}}</td>
+               <td>{{i[17]}}</td>
+		   <td>{{i[3]}}</td>
+			  
+		   <td>{{i[4]}}</td>
+			  
+           <td>{{i[6]}}</td>
+            <td>{{i[11]}}</td>
+            <td>{{i[22]}}</td>
+			  
+{#		   <td><a href="/Viewmore/{{i[0]}}">view more</a></td>#}
+{#           <td><a href="/deletestudent/{{i[0]}}">delete</a></td>#}
+{#           <td><a href="/updatestudent/{{i[0]}}">edit</a></td>#}
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</form>
+
+<br><br><br><br>
+<br><br><br><br>
+{%include 'footer.html' %}

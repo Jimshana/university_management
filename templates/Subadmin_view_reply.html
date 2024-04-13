@@ -1,0 +1,43 @@
+{% include 'sub_header.html' %}
+
+<body>
+<form action="/view_complaint_from_customer_post" method="post">
+
+     <table class="table table-bordered table-striped table-hover">
+
+  <tr>
+    <th><a href="/subadmin_send_complaints"> Add New Complaints</a></th>
+   
+  </tr>
+</table>
+
+
+     <table class="table table-bordered table-striped table-hover">
+  <tr>
+    <th>Sno</th>
+  
+    <th>Complaint</th>
+    <th>Date</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+      {% for i in data %}
+    <td>{{ loop.index }}</td>
+  
+    <td>{{ i[1] }}&nbsp;</td>
+    <td>{{ i[2] }}&nbsp;</td>
+    <td>{{ i[3] }}&nbsp;</td>
+  </tr>
+    {% endfor %}
+</table>
+
+</form>
+</body>
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}

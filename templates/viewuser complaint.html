@@ -1,0 +1,73 @@
+{% include 'admin_header.html' %}
+
+<body>
+<form action="/view_user_complaint_Post" method="post">
+
+<h3>From Sub Admin</h3>
+<table class="table table-bordered">
+  <tr style="background-color: black;color: white">
+    <th>Sno</th>
+    <th>Date</th>
+    <th>From</th>
+    <th>Complaint</th>
+    <th>Status</th>
+    <th>Reply</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td height="140">{{ loop.index }}&nbsp;</td>
+    <td>{{i['date'] }}</td>
+    <td>{{ i['name'] }}</td>
+    <td>{{ i['complaint'] }}</td>
+    <td>{{ i['status'] }}</td>
+    <td>
+        {% if i['reply']=='pending' %}
+        <a href="/send_reply/{{ i["complaint_id"] }}"class="btn btn-info">sentreply</a>
+        {% else %}
+        {{ i['reply'] }}
+        {% endif %}
+    </td>
+  </tr>
+    {% endfor %}
+</table>
+
+<br>
+
+<h3>From Students</h3>
+<table class="table table-bordered">
+  <tr style="background-color: black;color: white">
+    <th>Sno</th>
+    <th>Date</th>
+    <th>From</th>
+    <th>Complaint</th>
+    <th>Status</th>
+    <th>Reply</th>
+  </tr>
+    {% for i in data2 %}
+  <tr>
+    <td height="140">{{ loop.index }}&nbsp;</td>
+    <td>{{i['date'] }}</td>
+    <td>{{ i['name'] }} </td>
+    <td>{{ i['complaint'] }}</td>
+    <td>{{ i['status'] }}</td>
+    <td>
+        {% if i['reply']=='pending' %}
+        <a href="/send_reply/{{ i["complaint_id"] }}"class="btn btn-info">sentreply</a>
+        {% else %}
+        {{ i['reply'] }}
+        {% endif %}
+    </td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}

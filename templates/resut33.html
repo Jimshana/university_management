@@ -1,0 +1,30 @@
+{% include 'admin_header.html' %}
+
+<form id="form1" name="form1" method="post" action="">
+<center>
+  <table class="table table-bordered table-striped">
+  <tr>
+    <td>Regno</td>
+    <td>Name</td>
+    <td>gender</td>
+    <td>&nbsp;</td>
+  </tr>
+   {% for i in data %}
+  <tr>
+    <td>{{i[0]}}</td>
+    <td>{{i[1]}}</td>
+    <td>{{i[2]}}</td>
+    <td><a href="/result_generation1/{{i[0]}}" class="btn btn-primary">result</a></td>
+  </tr>
+     {% endfor %}
+</table>
+</center>
+</form>
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}

@@ -1,0 +1,56 @@
+
+
+{%include 'sub_header.html' %}
+
+
+
+<form method="post" action="/subadmin_view_colleges_search">
+    <h2 class="text-center fs-6 text-dark"  style="font-weight:bold">View Colleges</h2><br>
+
+    <center>
+        <p>
+            <input type="text" name="txtsearch1" class="form-control" required style="width: 50%">
+            <input type="submit" name="submit" value="Search" class="btn btn-primary">
+        </p><br><br>
+
+     <table class="table table-bordered table-striped table-hover">
+
+            <tr>
+                <th>Sl NO</th>
+                <th>College Name</th>
+                <th>Email ID</th>
+                <th>Phone</th>
+               
+               
+                <th>Place</th>
+                <th>Street</th>
+                <th>Pin</th>
+                <th colspan="1">Actions</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+               <td>{{ loop.index }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[5] }}</td>
+                <td>{{ i[6] }}</td>
+{#                <td><a href="/deletecollege/{{ i[0] }}">Delete</a></td>#}
+{#                <td><a href="/updatecollege/{{ i[0] }}">Edit</a></td>#}
+                <td><a href="/subadmin_view_courses/{{ i[0] }}" class="btn btn-primary">View Courses</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</form>
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}
+
+

@@ -1,0 +1,76 @@
+
+
+{%include 'admin_header.html' %}
+
+<style>
+    th, td {
+        padding: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        text-align: left;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>
+
+<form method="post" action="/searchcollege">
+    <h2 class="text-center fs-6 text-dark" style="font-weight:bold">View College</h2><br>
+
+    <center>
+        <p>
+            <input type="text" name="txtsearch1">
+            <input type="submit" name="submit" value="Search">
+        </p><br>
+        <table width="100%" border="1">
+            <tr>
+                <th>SI No</th>
+                <th>College Name</th>
+                <th>Phone No</th>
+                <th>Email ID</th>
+                <th>Place</th>
+                <th>Street</th>
+                <th>PIN</th>
+                <th colspan="2">Actions</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{ i[0] }}</td>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[5] }}</td>
+                <td>{{ i[6] }}</td>
+                <td><a href="/deletecollege/{{ i[0] }}">Delete</a></td>
+                <td><a href="/updatecollege/{{ i[0] }}">Edit</a></td>
+                <td><a href="/Viewalloccourses/{{ i[0] }}">View Allocations</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</form>
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+
+{% include 'footer.html' %}
+
+

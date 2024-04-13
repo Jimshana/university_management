@@ -1,0 +1,56 @@
+{% include 'admin_header.html' %}
+
+
+<style>
+    th, td {
+        padding: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>
+<form id="form1" name="form1" method="post" action="">
+  <h2 align="center" class="heading" style="color: black;font-weight: bold;">View Batches</h2><br>
+
+  <table width="200" border="1">
+    <tr>
+      <td>id</td>
+      <td>cource</td>
+      <td>batch</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    {% for i in data %}
+    <tr>
+      <td>{{loop.index}}</td>
+      <td>{{i[1]}}</td>
+      <td>{{i[2]}}</td>
+      <td><a href="/edit_batch/{{i[0]}}">edit</a></td>
+      <td><a href="/del_batch/{{i[0]}}">remove</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</form>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{%include 'footer.html'%}

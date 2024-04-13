@@ -1,0 +1,37 @@
+{%include 'college_header.html' %}
+  <form id="form1" name="form1" method="post" action="/clgvwnot"><center>
+
+  <p>&nbsp;</p>
+  <table width="339" height="54" border="1">
+    <tr>
+      <td width="96"><strong>
+        <input name="notification" type="radio" value="normal" required/>
+      Normal</strong></td>
+      <td width="135"><strong>
+        <input name="notification" type="radio" value="internal" required/>
+      Internal Mark</strong></td>
+      <td width="63"><input type="submit" name="Submit2" value="Ok" /></td>
+    </tr>
+  </table>
+  <p>&nbsp;</p>
+  <table width="344" height="94" border="1">
+    <tr>
+      <th width="68" scope="col">callid</th> 
+      <th width="68" scope="col">Message</th>
+      <th width="36" scope="col">Date</th>
+    </tr>
+	{%for i in data%}
+    <tr>
+      <td></td>
+      <td>{{i[1]}}</td>
+      <td>{{i[3]}}</td>
+        {% if m=="1" %}
+	  <td width="38"><a href="/CollegeAddInternal/{{ i[5] }}">Reply</a></td>\
+        {% endif %}
+      
+    </tr>
+	{%endfor%}
+  </table></center>
+</form>
+
+{% include 'footer.html' %}

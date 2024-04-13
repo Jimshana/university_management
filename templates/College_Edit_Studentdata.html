@@ -1,0 +1,181 @@
+{%include 'college_header.html' %}
+<form action="/updatestudent1" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <div align="center">
+<style>
+    th, td {
+        padding: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>
+    <p>&nbsp;</p>
+    <table >
+      <input type="hidden" name="id" value="{{ data[0] }}"/>
+      <tr>
+        <th width="120" scope="row">Name</th>
+        <td width="144"><input type="text" class="form-control" required name="name" value="{{ data[2] }}" /></td>
+      </tr>
+    {%  if data[3]=="Male" %}
+      <tr>
+        <th scope="row">Gender</th>
+        <td><input name="gender" type="radio" value="Male" checked />
+          Male 
+          <input name="gender" type="radio" value="Female" />
+          Female</td>
+      </tr>
+    {% else %}
+
+      <tr>
+        <th scope="row">Gender</th>
+        <td><input name="gender" type="radio" value="Male"  />
+          Male
+          <input name="gender" type="radio" value="Female" checked/>
+          Female</td>
+      </tr>
+    {% endif %}
+      <tr>
+        <th scope="row">D.O.B</th>
+        <td><input type="date" name="dob" id="mydob" onchange="checkMinimumAge()" class="form-control" required value="{{ data[4] }}"/></td>
+      </tr>
+      <tr>
+        <th scope="row">HouseName</th>
+        <td><input type="text" name="hname" class="form-control" required value="{{ data[5] }}" /></td>
+      </tr>
+      <tr>
+        <th scope="row">Place</th>
+        <td><input type="text" name="place" class="form-control" required  value="{{ data[6] }}" /></td>
+      </tr>
+      <tr>
+        <th scope="row">Street</th>
+        <td><input type="text" name="street" class="form-control" required value="{{ data[7] }}" /></td>
+      </tr>
+      <tr>
+        <th scope="row">Post</th>
+        <td><input type="text" name="post" class="form-control" required value="{{ data[8] }}"/></td>
+      </tr>
+      <tr>
+        <th scope="row">Pin</th>
+        <td><input type="text" name="pin" class="form-control" required value="{{ data[9] }}"/></td>
+      </tr>
+      <tr>
+        <th scope="row">State</th>
+        <td><input type="text" name="state" class="form-control" required value="{{ data[10] }}"/></td>
+      </tr>
+      <tr>
+        <th scope="row">Guardian</th>
+        <td><input type="text" name="guardian" class="form-control" required value="{{ data[11] }}" /></td>
+      </tr>
+      <tr>
+        <th scope="row">Local Guardian </th>
+        <td><input type="text" name="lguardian" class="form-control" required value="{{ data[12] }}"/></td>
+      </tr>
+      
+      <!-- <tr>
+        <th scope="row">Course</th>
+        <td>
+          <select name="course" id="crs" class="form-control" required>
+
+          {%for a in data1  %}
+          <option value="{{a[0]  }}">{{a[1]  }}</option>
+          {% endfor %}
+          </select>        </td>
+      </tr> -->
+      <!-- <tr>
+        <th scope="row">Batch</th>
+        <td><select name="batch" id="bid" class="form-control" required>
+          <option>--select batch--</option>
+        </select></td>
+      </tr> -->
+      <!-- <tr>
+        <th scope="row">Semester</th>
+        <td><select name="semester" class="form-control" required>
+          <option>1st semester</option>
+          <option>2nd semester</option>
+          <option>3rd semester</option>
+          <option>4th semester</option>
+          <option>5th semester</option>
+          <option>6th semester</option>
+          <option>7th semester</option>
+          <option>8th semester</option>
+        </select>      </td>
+      </tr> -->
+      <tr>
+        <th scope="row">PhoneNo</th>
+        <td><input type="text" name="phno" class="form-control" required  value="{{ data[16] }}"/></td>
+      </tr>
+      <tr>
+        <th scope="row">Regno</th>
+        <td><input type="text" name="regno" class="form-control" required value="{{ data[17] }}"/></td>
+      </tr>
+      <tr>
+        <th scope="row">Email Id </th>
+        <td><input type="text" name="email" class="form-control" required value="{{ data[18] }}"/></td>
+      </tr>
+      <tr>
+        <th scope="row">Photo</th>
+        <td><input type="file" name="photo" class="form-control"  value="{{ data[19] }}"/></td>
+      </tr>
+      <tr>
+        <th scope="row" colspan="2"><input type="submit" name="Update" class="btn btn-primary" value="Update" /></th>
+      </tr>
+    </table>
+  <script>
+        function checkMinimumAge() {
+            var currentDate = new Date();
+            var selectedDate = new Date(document.getElementById('mydob').value);
+
+            // Calculate age
+            var age = currentDate.getFullYear() - selectedDate.getFullYear();
+
+            // Check if the user is less than 21 years old
+            if (age < 21) {
+                alert("Sorry, you must be at least 21 years old.");
+                document.getElementById('mydob').value = ""; // Reset the value
+            }
+        }
+    </script>
+
+  </div>
+</form><script src="/static/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+        $("#crs").on('change', function () {
+            var courseid = $(this).val()
+            $.getJSON('/selectbatch', {
+                crsid: courseid
+            }, function (data) {
+                var len = data.length;
+
+                for (var i = 0; i < len; i++) {
+                    var batchid = data[i]['id']
+                    var batch = data[i]['batch']
+                    $("#bid").append("<option value =" + batchid + ">" + batch + "</option>")
+
+                }
+
+
+            });
+
+        });
+    });
+    </script>
+{% include 'footer.html' %}

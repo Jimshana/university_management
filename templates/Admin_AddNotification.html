@@ -1,0 +1,59 @@
+{% include 'admin_header.html' %}
+<style>
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>
+
+
+
+        <form method="post" action="/Addnotif1">
+            <h2 align="center" class="heading" style="color: black;font-weight: bold;">Notification</h2>
+
+            <div align="center">
+                <p>&nbsp;</p>
+                <table >
+                    <tr>
+                        <td><strong>College</strong></td>
+                        <td>
+                            <select name="clg" required class="form-control">
+                            <option value="0">All </option>
+                                {% for a in data %}
+                                <option value="{{ a[0] }}">{{ a[1] }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Message</strong></td>
+                        <td><textarea name="msg" required class="form-control"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input name="submit" type="submit" id="send" value="Send" class="btn btn-primary">
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <p><a href="/Viewnotif" class="btn btn-info" >ViewNotification</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}

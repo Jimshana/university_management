@@ -1,0 +1,45 @@
+
+
+{%include 'admin_header.html' %}
+
+
+
+<form method="post" action="/searchcollege">
+    <h2 class="text-center fs-6 text-dark" style="font-weight:bold">Reports</h2><br>
+
+    <center>
+
+      <table class="table table-bordered table-striped">
+            <tr>
+                <th>Name</th>
+                <th>File</th>
+                <th>Date</th>
+                <th>Status</th>
+
+            </tr>
+            {% for i in data %}
+            <tr>
+{#                <td>{{ i[0] }}</td>#}
+{#                <td>{{ i[1] }}</td>#}
+                <td>{{ i["Name"] }}</td>
+                <td><img src="{{ i['file'] }}" width="100px" height="100px" style="width:100px;height:100px"/> </td>
+                <td>{{ i['date'] }}</td>
+                <td>{{ i['status'] }}</td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</form>
+
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+
+{% include 'footer.html' %}
+
+

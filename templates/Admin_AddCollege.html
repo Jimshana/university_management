@@ -1,0 +1,68 @@
+{% include 'admin_header.html' %}
+
+<style>
+    .container {
+        background-color: transparent; /* Set background color to transparent */
+    }
+    
+    .content-box {
+        background-color: #ffffff; /* Set background color of the box */
+        border-radius: 10px; /* Set border radius for rounded corners */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+        padding: 20px; /* Add padding for spacing */
+    }
+
+    th, td {
+        padding: 10px;
+    }
+</style>
+
+
+      <h2 class="text-center fs-6 text-dark" style="font-weight:bold">Add College</h2>
+
+        <form method="post" action="/Addcollege1">
+            <center>
+                <p>&nbsp;</p>
+                <table>
+                    <tr>
+                        <td><strong>College Name</strong></td>
+                        <td><input type="text" name="clgname" id="clgname" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Phone No:</strong></td>
+                        <td><input type="text" name="phno" id="phno" pattern="[6789][0-9]{9}" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Email ID</strong></td>
+                        <td><input type="email" name="email" id="email" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Place</strong></td>
+                        <td><input type="text" name="place" id="place" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Street</strong></td>
+                        <td><input type="text" name="street" id="street" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td><strong>PIN</strong></td>
+                        <td><input type="text" name="pin" id="pin" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" id="submit" value="Submit" class="btn btn-primary">
+                        </td>
+                    </tr>
+                </table>
+       <br>
+                <p><a href="/Viewcollege" class="btn btn-info">View College</a></p>
+            </center>
+        </form>
+  
+        <br><br>
+        <br><br><br><br><br><br>
+        <br><br>
+        <br><br><br><br><br><br>
+        <br><br>
+        <br><br>
+{% include 'footer.html' %}

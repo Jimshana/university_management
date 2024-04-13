@@ -1,0 +1,43 @@
+
+{% include 'admin_header.html' %}
+
+
+
+<div class="container">
+    <div class="content-box">
+        <form id="form1" name="form1" method="post" action="/updatecourse">
+            <div align="center">
+                <p>&nbsp;</p>
+                 <table class="table table-bordered table-striped">
+                    <tr>
+                        <td><strong>Select Department</strong></td>
+                        <td>
+                            <select name="dptid" class="form-control">
+                                {% for department in data1['dptview'] %}
+                                <option value="{{ department[0] }}">{{ department[1] }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Course</strong></td>
+                        <td><input type="text" name="course" class="form-control" id="course" value="{{ data[1] }}" required></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Course Code</strong></td>
+                        <td><input type="text" name="coursecd" class="form-control" id="coursecd" value="{{ data[2] }}" required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" id="update" value="Update" class="btn btn-primary">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+
+

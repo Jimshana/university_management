@@ -1,0 +1,80 @@
+{% include 'admin_header.html' %}
+
+
+
+        <form method="post" action="/Allocate1">
+            <h2 align="center" class="heading" style="color: black;font-weight: bold;">Allocate courses</h2>
+            <br>
+
+            <div align="center">
+                 <table class="table table-bordered table-striped">
+                    <tr>
+                        <td><strong>College Name</strong></td>
+                        <td>
+                            <select name="clgname" id="clgna" class="form-control" required>
+                                {% for a in data %}
+                                    <option value="{{ a[0] }}">{{ a[1] }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                 <table class="table table-bordered table-striped">
+
+                    <tr>
+                        <td><strong>Course ID</strong></td>
+                        <td><strong>Name</strong></td>
+                        <td></td>
+                    </tr>
+                    {% for i in data1 %}
+                    <tr id="ch">
+                        <td>{{ loop.index }}</td>
+                        <td>{{ i[1] }}</td>
+                        <td>
+                            <input type="checkbox" name="crs" value="{{ i[0] }}" id="crs">
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" name="allocate" value="Allocate" class="btn btn-primary">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+
+<script src="/static/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#view").hide();
+        $(document).on('change', '#clgna', function () {
+            $("#ch").text("");
+            $("#hide").hide();
+            $("#view").show();
+            var id = $(this).val();
+            $.getJSON('/alloccourse', {
+                clgna: id
+            }, function (data) {
+                var len = data.length;
+                $("#view").empty();
+                var k = 0;
+                for (var i = 0; i < len; i++) {
+                    k = k + 1;
+                    var crsid = data[i]['crsid'];
+                    var crsna = data[i]['crs'];
+                    $("#view").append("<tr><td>" + k + "</td><td>" + crsna + "</td><td><input type='checkbox' name='crs' value=" + crsid + " id='id'/></td></tr>");
+                }
+            });
+        });
+    });
+</script>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}

@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Unique ID</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="keywords" content="Indoctrination Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- Custom Theme files -->
+    <link href="/static/admin/web/css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <link href="/static/admin/web/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <!-- font-awesome icons -->
+    <link href="/static/admin/web/css/fontawesome-all.min.css" rel="stylesheet">
+	<!-- //Custom Theme files -->
+    <!-- online-fonts -->
+    <link href="///static/admin/web/fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+    <!-- //online-fonts -->
+</head>
+
+<body>
+    <!-- banner -->
+    <div class="banner">
+        <!-- header -->
+    <header>
+	<nav class="mnu navbar-light">
+            <div class="logo" id="logo">
+				<img src="/static/admin/web/universityimg/logo.png" width="60px" alt="">
+
+                <h1><a href="index.html">UNIQUE ID</a></h1>
+            </div>
+				<label for="drop" class="toggle"><span class="fa fa-bars"></span></label>
+                <input type="checkbox" id="drop">
+                <ul class="menu">
+                    <li class="active"><a href=/admin_add_department><font color="#f5f5dc">Departments</font></a></li>
+                    <li><a href=/Addcourse><font color="#f5f5dc">Course</font></a></li>
+                    <li><a href=/Addcollege><font color="#f5f5dc">College</font></a></li>
+                    <li><a href=/Addsubject><font color="#f5f5dc">subject</font></a></li>
+                    <li><a href=/admin_add_subadmin><font color="#f5f5dc">SubAdmin</font></a></li>
+
+                    <li class="mr-lg-4 mr-3">
+                        <!-- First Tier Drop Down -->
+                        <label for="drop-2" class="toggle">Drop Down <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+                        <a href="#">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                        <input type="checkbox" id="drop-2" />
+                        <ul>
+                            <li><a href=/Addbatch><font color="text-dark">Batch</font></a></li>
+                            <li><a href=/Allocate><font color="text-dark">Allcate Course</font></a></li>
+                            <li><a href=/AddCallinternal><font color="text-dark">Internal Mark</font></a></li>
+                            <li><a href=/Addxternal><font color="text-dark">External Mark</font></a></li>
+                            <li><a href=/Addnotif><font color="text-dark">Notification</font></a></li>
+                            <li><a href=/result_generation><font color="text-dark">Certificate</font></a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href=/login><font color="text-primary">Logout</font></a></li>
+                </ul>
+    </nav>
+</header>
+<br>
+<br>
+<!-- //header -->
+        <!-- <div class="container"> -->
+            <!-- banner-text -->
+            <div class="banner-text text-center">
+                <div class="slider-info">
+                    <!-- <h3 class="text-dark">UNIQUE KEY UNIVERSITY</h3> -->
+				</div>
+            </div>
+			<!-- <div class="banner-top pb-5"> -->
+                <!-- <div class="row slider-bottom">
+                    <div class="col-md-3 slider-bottom-lft">
+						 <h4>Subscribe Now</h4> -->
+						<!-- <p class="text-white mt-2">This is a longer card with supporting</p>
+					</div>
+					 <div class="col-md-9 n-right-w3ls"> -->
+						<!-- <div class="row">
+							<div class="col-md-4 form-group news-rt">
+								<input class="form-control" type="text" name="Name" placeholder="Name" required="">
+							</div>
+							<div class="col-md-4 form-group news-lt">
+								<input class="form-control" type="email" name="Email" placeholder=" Email Address" required="">
+							</div>
+							<div class="col-md-4 form-group news-last">
+								<div class="sbm-it">
+									<div class="form-group">
+										<input class="form-control submit text-uppercase" type="submit" value="Subscribe">
+									</div>
+								</div>
+							</div>
+						</div> -->
+					<!-- </div>
+				</div> 
+            </div> -->
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+    

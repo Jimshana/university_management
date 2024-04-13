@@ -1,0 +1,90 @@
+{% include 'admin_header.html' %}
+
+
+<style>
+    .container {
+        background-color: transparent; /* Set background color to transparent */
+    }
+    
+    .content-box {
+        background-color: #ffffff; /* Set background color of the box */
+        border-radius: 10px; /* Set border radius for rounded corners */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+        padding: 20px; /* Add padding for spacing */
+
+        h2 {
+            font-family: Verdana;
+          
+        }
+    }
+</style>
+
+
+                <form method="post"> 
+                    <br>
+                    <h2 align="center" class="heading" style="color: black;font-weight: bold;">Add Departments</h2>
+                    <br>
+                    <table class="table table-bordered table-striped" style="width: 60%;" align="center">
+
+    <tr>
+        <td>
+
+            <label for="dptname">Department Name:</label></td>
+        <td>                <input type="text" id="dptname" name="dptname" class="form-control" placeholder="Enter department name" required>
+
+        </td>
+    </tr>
+                    <tr>
+        <td>
+
+                <label for="demail">Department Email:</label>
+        </td>
+                        <td>
+                <input type="email" id="demail" name="demail" class="form-control" placeholder="Enter department email" required>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+
+                <label for="dphone">Department Phone:</label>
+        </td>
+        <td>
+                <input type="tel" id="dphone" name="dphone" pattern="[0-9]{10}" title="Enter 10 digit mobile number" class="form-control" placeholder="Enter department phone" required>
+
+        </td>
+
+    </tr>
+    <tr>
+        <td colspan="2">
+            <center>
+                <button type="submit" name="ADD" class="btn btn-primary btn-block">Add Department</button>
+            </center>
+        </td>
+    </tr>
+</table>
+<center><a href="/admin_view_department" class="btn btn-secondary">View Departments</a>
+</center>
+                </form>
+            </div>
+        </div>
+      
+          
+
+             
+           
+    
+    </div>
+</div>
+
+
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+
+
+{% include 'footer.html' %}

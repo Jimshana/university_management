@@ -1,0 +1,50 @@
+{% include "college_header.html" %}
+
+<style>
+    th, td {
+        padding: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>
+
+<form id="form1" name="form1" method="post" action="">
+    <div align="center">
+        <p>&nbsp;</p>
+        <table>
+            <tr>
+                <th>Sl No</th>
+                <th>Allocated Course</th>
+                <th>Course Code</th>
+                <th></th>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ i[2] }}</td>
+                      <td>{{ i[4] }}</td>
+                <td><a href="/college_view_batches/{{ i[3] }}">Batches</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</form>
+
+{% include 'footer.html' %}

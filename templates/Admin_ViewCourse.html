@@ -1,0 +1,45 @@
+
+
+{% include 'admin_header.html' %}
+
+
+<center>
+<form method="post" action="/searchcourse" style="width: 60%;">
+    <h2 align="center" class="heading" style="color: black;font-weight: bold;">View Courses</h2>
+
+   <br>
+    <p align="center">
+        <input type="text" name="txtsearch" class="form-control">
+        <input type="submit" name="submit" value="Search" class="btn btn-primary">
+    </p>
+    <br>
+    <br>
+    <div align="center">
+      <table class="table table-bordered table-striped" style="width: 60%;">
+            <tr>
+                <th>Course</th>
+                <th>Course Code</th>
+                <th>Department</th>
+                <th colspan="2">Actions</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{ i[1] }}</td>
+                <td>{{ i[2] }}</td>
+                <td>{{ i[4] }}</td>
+                <td><a href="/deletecourse/{{ i[0] }}" class="btn btn-danger">Delete</a></td>
+                <td><a href="/updatecourse1/{{ i[0] }}" class="btn btn-primary">Edit</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</form>
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+</center>
+{% include 'footer.html' %}

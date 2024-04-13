@@ -1,0 +1,68 @@
+
+
+{%include 'admin_header.html' %}
+
+
+
+<style>
+    th, td {
+        padding: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        text-align: left;
+    }
+
+    td {
+        text-align: center;
+    }
+
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>
+
+<form method="post" action="/searchcollege">
+    <h2 align="center" class="heading" style="color: black;font-weight: bold;">Verifier list</h2><br>
+
+    <center>
+
+        <table width="60%" border="1" style="width: 60%;">
+            <tr>
+                <th>Name</th>
+                <th>Phone No</th>
+                <th>Email ID</th>
+                <th>Purpose</th>
+
+            </tr >
+            {% for i in data %}
+            <tr >
+{#                <td>{{ i[0] }}</td>#}
+{#                <td>{{ i[1] }}</td>#}
+                <td>{{ i[2] }}</td>
+                <td>{{ i[3] }}</td>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[5] }}</td>
+
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+</form>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+
+{% include 'footer.html' %}
+
+

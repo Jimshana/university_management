@@ -1,0 +1,57 @@
+
+  {% include 'admin_header.html' %}
+
+<style>
+    th, td {
+        padding: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    a {
+        text-decoration: none;
+        color: blue;
+    }
+</style>
+
+<form id="form1" name="form1" method="post" action="">
+    <h2 class="text-center fs-6 text-dark"  style="font-weight:bold">View Allocations</h2>
+    <div align="center">
+        <p>&nbsp;</p>
+        <table>
+            <tr>
+                <th>Sl No</th>
+                <th>Allocated Course</th>
+                <th>College Name</th>
+                <th>Action</th>
+            </tr>
+            {% for i in data %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ i[4] }}</td>
+                <td>{{ i[8] }}</td>
+                <td><a href="/deleteallocourse/{{ i[0] }}">Remove</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</form>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}

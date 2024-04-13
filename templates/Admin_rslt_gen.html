@@ -1,0 +1,236 @@
+{% include 'admin_header.html' %}
+
+<!-- <form name="form1" method="post" action="/rr22">
+<center>
+  <p>&nbsp;</p>
+  <table width="374" height="166">
+    <tr>
+      <td width="150"><strong>Collegename</strong></td>
+      <td width="212"><label for="select">
+        
+        <select name="college" size="1" id="clg" required>
+          
+          
+          
+        
+    
+        {%for a in data2  %}
+          
+    
+        
+          
+          
+          <option value="{{a[0]  }}">{{a[1]  }}</option>
+          
+          
+          
+        
+    
+        {% endfor %}
+        
+  
+      
+        
+        
+        </select>
+         </label></td>
+    </tr>
+    <tr>
+      <td><strong>Course</strong></td>
+      <td><label for="select2"></label>
+        <select name="course" id="crs" required>
+             <option>--select course--</option>
+        </select></td>
+    </tr>
+    <tr>
+      <td><strong>Batch</strong></td>
+      <td><label for="select3"></label>
+        <select name="batch" id="bid" required>
+             <option>--select--</option>
+        </select></td>
+    </tr>
+    <td colspan="2">   <div align="center">
+      <input type="submit" name="submit" id="submit" value="Submit">
+    </div></td>
+  </table>
+ 
+
+  <p>&nbsp;</p>
+  </center>
+</form>
+</body>
+</html>
+<script src="static/jquery.js"></script>
+<script type="text/jscript">
+ $(document).ready(function () {
+
+
+        $("#crs").on('change', function () {
+
+            var courseid = $(this).val()
+             $("#bid").text("")
+            $.getJSON('/selectbatch', {
+                crsid: courseid
+            }, function (data) {
+                var len = data.length;
+
+                for (var i = 0; i < len; i++) {
+                    var batchid = data[i]['id']
+                    var batch = data[i]['batch']
+                    $("#bid").append("<option value =" + batchid + ">" + batch + "</option>")
+
+                }
+
+
+            });
+
+        });
+ $("#clg").on('change', function () {
+	 
+            var collegeid = $(this).val()
+           $("#crs").text("")
+            $.getJSON('/selectcourse', {
+                clgid: collegeid
+            }, function (data) {
+                var len = data.length;
+
+                for (var i = 0; i < len; i++) {
+                    var courseid = data[i]['crsid']
+                    var course = data[i]['crs']
+                    $("#crs").append("<option value =" + courseid + ">" + course + "</option>")
+
+                }
+
+
+            });
+
+        });
+
+    });
+    </script> -->
+
+
+
+<style>
+    .container {
+        background-color: transparent; /* Set background color to transparent */
+    }
+    
+    .content-box {
+        background-color: #ffffff; /* Set background color of the box */
+        border-radius: 10px; /* Set border radius for rounded corners */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+        padding: 20px; /* Add padding for spacing */
+    }
+
+    th, td {
+        padding: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+
+        <form name="form1" method="post" action="/rr22">
+            <h2 align="center" class="heading" style="color: black;font-weight: bold;">Certificates</h2>
+
+            <center>
+                <p>&nbsp;</p>
+                <table width="374" height="166">
+                    <tr>
+                        <td width="150"><strong>College Name</strong></td>
+                        <td width="212">
+                            <select name="college" size="1" id="clg" required class="form-control">
+                                {% for a in data2 %}
+                                <option value="{{ a[0] }}">{{ a[1] }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Course</strong></td>
+                        <td>
+                            <select name="course" id="crs" required class="form-control">
+                                <option>-- Select Course --</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Batch</strong></td>
+                        <td>
+                            <select name="batch" id="bid" required class="form-control">
+                                <option>-- Select Batch --</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div align="center">
+                                <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-primary">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <p>&nbsp;</p>
+            </center>
+        </form>
+    </div>
+</div>
+
+<script src="static/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#crs").on('change', function () {
+            var courseid = $(this).val();
+            $("#bid").text("");
+            $.getJSON('/selectbatch', {
+                crsid: courseid
+            }, function (data) {
+                var len = data.length;
+                for (var i = 0; i < len; i++) {
+                    var batchid = data[i]['id'];
+                    var batch = data[i]['batch'];
+                    $("#bid").append("<option value =" + batchid + ">" + batch + "</option>");
+                }
+            });
+        });
+
+        $("#clg").on('change', function () {
+            var collegeid = $(this).val();
+            $("#crs").text("");
+            $.getJSON('/selectcourse', {
+                clgid: collegeid
+            }, function (data) {
+                var len = data.length;
+                for (var i = 0; i < len; i++) {
+                    var courseid = data[i]['crsid'];
+                    var course = data[i]['crs'];
+                    $("#crs").append("<option value =" + courseid + ">" + course + "</option>");
+                }
+            });
+        });
+    });
+</script>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+{% include 'footer.html' %}
+
+
+

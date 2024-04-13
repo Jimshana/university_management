@@ -1,0 +1,104 @@
+{% include 'admin_header.html' %}
+
+<style>
+    .container {
+        background-color: transparent; /* Set background color to transparent */
+    }
+    
+    .content-box {
+        background-color: #ffffff; /* Set background color of the box */
+        border-radius: 10px; /* Set border radius for rounded corners */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+        padding: 20px; /* Add padding for spacing */
+    }
+
+    th, td {
+        padding: 10px;
+    }
+</style>
+
+
+      <h2 class="text-center fs-6 text-dark" style="font-weight:bold">Add Subject</h2>
+
+        <form id="form1" name="form1" method="post" action="/Addsubject1">
+            <div align="center">
+                <p>&nbsp;</p>
+                <table>
+                    <tr>
+                        <td><strong>Course</strong></td>
+                        <td>
+                            <select name="course" id="crs" class="form-control" required>
+                                {% for a in data %}
+                                    <option value="{{ a[0] }}">{{ a[1] }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Batch</strong></td>
+                        <td>
+                            <select name="batch" id="bid" class="form-control" required>
+                                {% for b in data1 %}
+                                    <option value="{{ b[1] }}">{{ b[0] }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Semester</strong></td>
+                        <td>
+                            <select name="semester" class="form-control" required>
+                                <option>1st semester</option>
+                                <option>2nd semester</option>
+                                <option>3rd semester</option>
+                                <option>4th semester</option>
+                                <option>5th semester</option>
+                                <option>6th semester</option>
+                                
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Enter subject</strong></td>
+                        <td><input type="text" name="ss" class="form-control" required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="center">
+                            <input type="submit" name="Submit" value="Submit" class="btn btn-primary">
+                        </td>
+                    </tr>
+                </table><br>
+                <p><a href="/view_sub" class="btn btn-secondary">View Subjects</a></p>
+                
+            </div>
+        </form>
+  
+
+<script src="/static/jquery.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#crs").on('change', function () {
+            var courseid = $(this).val();
+            $("#bid").text("");
+            $.getJSON('/selectbatch', {
+                crsid: courseid
+            }, function (data) {
+                var len = data.length;
+                for (var i = 0; i < len; i++) {
+                    var batchid = data[i]['id'];
+                    var batch = data[i]['batch'];
+                    $("#bid").append("<option value =" + batchid + ">" + batch + "</option>");
+                }
+            });
+        });
+    });
+</script>
+
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br><br><br><br><br>
+<br><br>
+<br><br>
+
+{% include 'footer.html' %}
